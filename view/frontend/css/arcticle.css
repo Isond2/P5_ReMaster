@@ -1,30 +1,30 @@
 .arcticle_titre
 {
-	text-transform: uppercase;
-	font-family: verdana;
+    text-transform: uppercase;
+    font-family: verdana;
 }
 
 .arcticle_date_auteur
 {
-	color: #f3f3f3;
-	background-color: #1e1e1e;
-	width: 20%;
-	float: right;
-	display: flex;
-	flex-direction: column;
- 	justify-content: center;
- 	text-align: center;
-	height: 5vh;
-	border-radius: 5px;
+    color: #f3f3f3;
+    background-color: #1e1e1e;
+    width: 20%;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 5vh;
+    border-radius: 5px;
 }
 
 .arcticle_contenu
 {
-	clear: right;
-	margin-top:	10vh;
-	text-indent:5%;
-	font-family: sans-serif;line-height: 3vh;
-	word-wrap: break-word;
+    clear: right;
+    margin-top: 10vh;
+    text-indent:5%;
+    font-family: sans-serif;line-height: 3vh;
+    word-wrap: break-word;
 }
 
 .arcticle_contenu::first-letter {
@@ -33,21 +33,21 @@
 
 h3
 {
-		font-family: verdana;
+        font-family: verdana;
 }
 
 @media screen and (max-width: 980px)
 {
-	#contenupage
-	{
-		margin-left: 12%;
-	}
+    #contenupage
+    {
+        margin-left: 12%;
+    }
 }
 
 @media screen and (max-width: 980px)
 {
-	.Dernieremodif
-	{
-		display: none;
-	}
+    .Dernieremodif
+    {
+        display: none;
+    }
 }

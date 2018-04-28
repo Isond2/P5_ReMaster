@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Liste des posts</title>
-	<meta charset="utf-8">
+    <title>Liste des posts</title>
+    <meta charset="utf-8">
 </head>
 <body>
 
@@ -46,8 +46,7 @@
 </form>
 
 <?php
-while ($comment = $comments->fetch())
-{
+while ($comment = $comments->fetch()) {
 ?>
     <p><strong><?= $comment['author'] ?></strong> le <?= $comment['comment_date_fr'] ?></p>
     <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
@@ -59,10 +58,8 @@ while ($comment = $comments->fetch())
 
 
 
-<?php }
-
-else { ?>
-	<h1 class="Titre"> L'article demandé n'existe pas </h1>
+<?php } else { ?>
+    <h1 class="Titre"> L'article demandé n'existe pas </h1>
 <?php } ?>
 
 </body>

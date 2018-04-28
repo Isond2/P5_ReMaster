@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<?php include ("Menu.php"); ?>
+<?php include("Menu.php"); ?>
 
 <h1 class="Titre"> Modifier un article </h1>
 

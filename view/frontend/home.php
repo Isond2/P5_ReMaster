@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="frontend/css/CoolBouton.css">
 <link rel="stylesheet" type="text/css" href="frontend/css/Coolform.css">
 <link rel="stylesheet" type="text/css" href="frontend/css/Coolliens.css">
-	<title>P5</title>
+    <title>P5</title>
 </head>
 <body id="LeBody">
 
@@ -32,7 +32,7 @@
 </div>
 
 
-<?php include ("Menu.php"); ?>
+<?php include("Menu.php"); ?>
 
 
 

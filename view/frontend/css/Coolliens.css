@@ -30,7 +30,7 @@
 
 #SocialBoutonControl:checked ~ #SocialIcons
 {
-  margin-right: -120px; 
+  margin-right: -120px;
   opacity: 1;
   transition: 1s;
 }

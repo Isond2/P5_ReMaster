@@ -1,13 +1,13 @@
 #LeBody
 {
-	margin: 0;
-	padding:0;
-	background:linear-gradient(rgba(237,237,237,0.99),rgba(237,237,237,0.3)),url("");
-	background-color: #ededed;
-	overflow: hidden;
-	opacity: 0.99;
-	overflow-y: scroll;
-	
+    margin: 0;
+    padding:0;
+    background:linear-gradient(rgba(237,237,237,0.99),rgba(237,237,237,0.3)),url("");
+    background-color: #ededed;
+    overflow: hidden;
+    opacity: 0.99;
+    overflow-y: scroll;
+    
 
 
 
@@ -17,25 +17,25 @@
 
 #SideBarControl
 {
-	display: none;
+    display: none;
 }
 
 
 #SideBar
 {
-	position: relative;
-	float: left;
-	margin-top: 33.5vh;
-	margin-left: -150px;
-	
+    position: relative;
+    float: left;
+    margin-top: 33.5vh;
+    margin-left: -150px;
+    
 
 }
 
 
 #SideBarControl:checked ~ #SideBar
 {
-	margin-left: 150px;
-	transition: 1s;
+    margin-left: 150px;
+    transition: 1s;
 }
 
 
@@ -43,39 +43,39 @@
 .Bouton1
 {
 
-	
+    
 }
 
 .Bouton2
 {
 
-	margin-top: 40px;
+    margin-top: 40px;
 }
 
 .Bouton3
 {
 
-	margin-top: 40px;
+    margin-top: 40px;
 }
 
 .Bouton4
 {
 
-	margin-top: 40px;
+    margin-top: 40px;
 }
 
 .Bouton5
 {
 
-	margin-top: 40px;
+    margin-top: 40px;
 }
 
 
 
 
 .SideBarBouton {
-	
-	z-index: 999;
+    
+    z-index: 999;
     height: 50px;
     width: 50px;
     background-color: #ededed;
@@ -90,25 +90,25 @@
 
 .BandeauGauche
 {
-	position: fixed;
-	z-index: 998;
-	float: left;
-	height: 200%;
-	width: 90px;
-	background-color: #1e1e1e;
+    position: fixed;
+    z-index: 998;
+    float: left;
+    height: 200%;
+    width: 90px;
+    background-color: #1e1e1e;
 
 }
 
 .CarreGauche
 {
-	margin-top: 40vh;
-	height: 130px;
-	width: 130px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	transform: rotate(45deg);
-	background-color: #1e1e1e; /*#1e1e1e*/
+    margin-top: 40vh;
+    height: 130px;
+    width: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(45deg);
+    background-color: #1e1e1e; /*#1e1e1e*/
 }
 
 
@@ -116,26 +116,26 @@
 
 .BandeauDroit
 {
-	z-index: 999;
-	float:right;
-	height: 100vh;
-	width: 90px;
-	background-color: #1e1e1e;
-	transform: rotate(180deg);
+    z-index: 999;
+    float:right;
+    height: 100vh;
+    width: 90px;
+    background-color: #1e1e1e;
+    transform: rotate(180deg);
 }
 
 .CarreDroit
 {
-	
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	z-index: 998;
-	margin-top: 46.2vh;
-	height: 130px;
-	width: 130px;
-	transform: rotate(45deg);
-	background-color: #1e1e1e;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 998;
+    margin-top: 46.2vh;
+    height: 130px;
+    width: 130px;
+    transform: rotate(45deg);
+    background-color: #1e1e1e;
 
 }
 
@@ -144,39 +144,39 @@
 
 #Contact
 {
-	position: fixed;
-	margin-left: 42%;
-	margin-top: 150vh;
-	visibility: hidden;
+    position: fixed;
+    margin-left: 42%;
+    margin-top: 150vh;
+    visibility: hidden;
 }
 
 
 #FormOuvre
 {
-	visibility: hidden;
+    visibility: hidden;
 }
 
 #FormOuvre:checked ~ #Contact
 {
-	margin-top: 20vh;
-	visibility: visible;
-	transition: 1s;
+    margin-top: 20vh;
+    visibility: visible;
+    transition: 1s;
 }
 
 .contactt
 {
-	margin: 18%;
-	transform: rotate(180deg);
+    margin: 18%;
+    transform: rotate(180deg);
 }
 
 
 /*Nom et prénom en haut a droite */
 .nomprenom
 {
-	font-family: verdana;
-	text-align: right;
-	letter-spacing: 0.3em;
-	color: #4c4c4c;
+    font-family: verdana;
+    text-align: right;
+    letter-spacing: 0.3em;
+    color: #4c4c4c;
 }
 
 
@@ -184,52 +184,52 @@
 
 
 
-/* Petit écran */ 
+/* Petit écran */
 
 @media screen and (max-width: 980px)
 {
-		/* barre gauche */ 
-	.BandeauGauche
-	{
-		display: none;
-	}
+        /* barre gauche */
+    .BandeauGauche
+    {
+        display: none;
+    }
 
-	#SideBar
-	{
-		display: none;
-	}
+    #SideBar
+    {
+        display: none;
+    }
 
-		/* Social icons */ 
-	#SocialIcons
-	{
-		display: none;
-	}
-	
-	.BandeauDroit
-	{
-		display: none;
-	}
-	.nomprenom
-	{
-		display: none;
-	}
+        /* Social icons */
+    #SocialIcons
+    {
+        display: none;
+    }
+    
+    .BandeauDroit
+    {
+        display: none;
+    }
+    .nomprenom
+    {
+        display: none;
+    }
 
-	#FormOuvre
-	{
-		display: none;
-	}
+    #FormOuvre
+    {
+        display: none;
+    }
 
-	.BoutonFormDiv
-	{
-		display: none;
-	}
+    .BoutonFormDiv
+    {
+        display: none;
+    }
 
-	#Contact
-	{
-		margin-top: 2vh;
-		visibility: visible;
-		margin-left: 28%;
-	}
+    #Contact
+    {
+        margin-top: 2vh;
+        visibility: visible;
+        margin-left: 28%;
+    }
 }
 
 
@@ -242,31 +242,31 @@
 @media screen and (min-width: 979px)
 {
 .BarreResponsive
-	{
-		visibility: hidden;
-	}
+    {
+        visibility: hidden;
+    }
 .Iconesmenu
-	{
-		display: none;
-	}
+    {
+        display: none;
+    }
 
 .dropdown
-	{
-		display: none;
-	}
+    {
+        display: none;
+    }
 
 .Titreacceuil
-	{
-		display: none;
-	}
+    {
+        display: none;
+    }
 .Inputresponsive
-	{
-		visibility: hidden;
-	}
+    {
+        visibility: hidden;
+    }
 .Messageresponsive
-	{
-		display: none;
-	}
+    {
+        display: none;
+    }
 }
 
 
@@ -274,45 +274,45 @@
 
 
 .Messageresponsive
-	{
-		
-		text-align: center;
-		margin-top: 5vh;
-		color: #1e1e1e;
-		font-family: verdana;
-		font-size: 1.3em;
+    {
+        
+        text-align: center;
+        margin-top: 5vh;
+        color: #1e1e1e;
+        font-family: verdana;
+        font-size: 1.3em;
 
-	}
+    }
 
 
 
-/* Barre menu petit ecran */ 
+/* Barre menu petit ecran */
 
 .BarreResponsive
 {
-	background-color: #1e1e1e;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .Iconesmenu
 {
-	margin-left: 1%;
-	margin-top: 1%;
-	margin-bottom: 1%;
+    margin-left: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 .dropdown
 {
-	z-index: 999;
+    z-index: 999;
 }
 
 .Titreacceuil
 {
-	color: #ededed;
-	font-family: verdana;
-	font-size: 1.6em;
+    color: #ededed;
+    font-family: verdana;
+    font-size: 1.6em;
 
 
 }
@@ -364,7 +364,7 @@
 .dropdown input[type=checkbox]:checked {
   position: fixed;
   z-index:+0;
-  top: 0px; left: 0px; 
+  top: 0px; left: 0px;
   right: 0px; bottom: 0px;
 }
 
@@ -411,3 +411,4 @@
   font-size: 1px;
   padding: 0;
 }
+

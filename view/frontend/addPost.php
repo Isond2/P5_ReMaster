@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Rédiger un article</title>
-	<meta charset="utf-8">
+    <title>Rédiger un article</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="frontend/css/posts.css">
     <link rel="stylesheet" type="text/css" href="frontend/css/BootstrapBoutonSeulement.css">
     <link rel="stylesheet" type="text/css" href="frontend/css/Redaction.css">
 </head>
 <body>
 
-<?php include ("Menu.php"); ?>
+<?php include("Menu.php"); ?>
 
 <h1 class="Titre"> Rédiger un article </h1>
 <div id="contenupage">

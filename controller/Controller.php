@@ -66,8 +66,7 @@ function addNewPost($title, $content, $chapo, $author)
 
     if ($req === false) {
         throw new Exception('Impossible d\'ajouter le post !');
-    }
-    else {
+    } else {
         header('Location: index.php?action=listPosts');
     }
 }
@@ -80,8 +79,7 @@ function addEditPost($title, $chapo, $content, $author, $postId)
 
     if ($editPost === false) {
         throw new Exception('Impossible de modifier l\'article !');
-    }
-    else {
+    } else {
         header('Location: index.php?action=post&id=' . $postId);
     }
 }
@@ -94,8 +92,7 @@ function addComment($postId, $author, $comment)
 
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter le commentaire !');
-    }
-    else {
+    } else {
         header('Location: index.php?action=post&id=' . $postId);
     }
 }

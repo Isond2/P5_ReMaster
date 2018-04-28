@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<?php include ("Menu.php"); ?>
+<?php include("Menu.php"); ?>
 
 <h1 class="Titre"> Supprimer un article </h1>
 <p>Êtes vous dur de vouloir supprimer l'article " <?= $post['title'] ?> " ?</p>
