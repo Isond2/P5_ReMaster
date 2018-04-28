@@ -1,0 +1,135 @@
+.BoutonFormDiv
+{
+    float: right;
+    margin-top: 90vh;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.BoutonForm1
+{
+  width: 150px;
+  height: 15px;
+  font-size: 13px;
+}
+
+
+
+.row {
+
+  width: 300px;
+  margin: 0 auto;
+  padding-top: 20px;
+
+}
+.row span {
+  position: relative;
+  display: block;
+  margin: 20px 10px;
+}
+
+
+
+
+#Envoyer {
+  background: #1e1e1e;
+  color: #f7f7f7;
+  font-family: verdana;
+  font-size: 15px;
+  width: 325px;
+  padding: 10px 40px;
+  border: 0;
+  outline: 0;  
+  transition: all .3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+}
+#Envoyer:hover {
+  background: #3a3a3a;
+}
+
+
+
+
+
+
+
+.slider {
+  display: inline-block;
+  width: 280px;
+  padding: 10px 5px 10px 40px;
+  font-family: verdana;
+  font-size: 10px;
+  color: #1e1e1e;
+  background: #f7f7f7;
+  border: 0;
+  outline: 0;
+  transition: all .3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+}
+#msg {
+  width: 260px;
+  height: 250px;
+  padding: 13px 5px 10px 60px;
+  resize: none;
+}
+#msg + label {
+  top: 26px;
+}
+.slider + label {
+  display: inline-block;
+  font-family: verdana;
+  font-size: 11px;
+  position: absolute;
+  margin-top: -18px;
+  top: 50%;
+  left: 0;
+  min-width: 80px;
+  padding: 7px 10px;
+  color: #1e1e1e;
+  transition: all .3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+  background: rgba(219,106,160, 0);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.slider + label:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0px;
+  top: 50%;
+  right: -18px;
+  margin-top: -9px;
+  border: 10px solid transparent;
+  border-left: 10px solid rgba(11,163,147, 0);
+  transition: all .3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+}
+
+.slider:focus,
+.slider:active {
+  margin-bottom: 13px;
+  color: #3a3a3a;
+  text-indent: 0;
+  background: #f2f2f2;
+}
+
+.slider:focus + label,
+.slider:active + label {
+  color: #ededed;
+  background: #3a3a3a;
+  transform: translateX(-100px);
+  -webkit-transform: translateX(-100px);
+}
+#msg:focus + label,
+#msg:active + label {
+  color: #ededed;
+  background: #3a3a3a;
+  transform: translateX(-112px);
+  -webkit-transform: translateX(-112px);
+}
+.slider:focus + label:after,
+.slider:active + label:after {
+  border-left: 9px solid #3a3a3a;
+}

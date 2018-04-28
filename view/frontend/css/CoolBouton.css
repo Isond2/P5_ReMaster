@@ -1,0 +1,65 @@
+.CoolBoutonLien
+{
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	position: relative;
+	text-transform: uppercase;
+	text-align: center;
+	width: 150px;
+	height: 15px;
+	background: #ededed;
+	text-decoration: none;
+	font-size: 13px;
+	font-family: verdana;
+	color: #1e1e1e;
+}
+
+	
+.CoolBoutonLien:after,
+.CoolBoutonLien:before,
+.CoolBoutonSpan:before,
+.CoolBoutonSpan:after
+{
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background: #1e1e1e;
+	transition: 1s;
+	mix-blend-mode: hue;
+}
+
+.CoolBoutonLien:before
+{
+	top: -2px;
+	left:-2px;
+}
+.CoolBoutonLien:after
+{
+	top: -2px;
+	right:-2px;
+}
+.CoolBoutonSpan:before
+{
+	bottom: -2px;
+	left: -2px;
+}
+.CoolBoutonSpan:after
+{
+	bottom: -2px;
+	right: -2px;
+}
+
+.CoolBoutonLien:hover:before,
+.CoolBoutonLien:hover:after,
+.CoolBoutonLien:hover .CoolBoutonSpan:before,
+.CoolBoutonLien:hover .CoolBoutonSpan:after
+{
+	width: 80px;
+	height: 15px;
+}
+
+
+
+

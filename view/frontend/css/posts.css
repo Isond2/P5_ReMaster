@@ -1,0 +1,63 @@
+#contenupage
+{
+	position: absolute;
+	margin-left: 20%;
+	margin-top: 20vh;
+	width: 70%;
+	padding: 3%;
+	border-radius: 50px;
+	border: 1.5vh double #1e1e1e;
+	background-color: #cccccc;
+}
+
+.center
+{
+	text-align: center;
+}
+
+.Titre
+{
+	margin-left: 45%;
+	float: left;
+	font-family: verdana;
+	position: absolute;
+}
+
+@media screen and (max-width: 980px)
+{
+	#contenupage
+	{
+		margin-left: 12%;
+	}
+
+	.Titre
+	{
+		margin-left: 27%;
+	}
+
+}
+
+
+.Tableau
+{
+	text-align: left;
+	font-family: verdana;
+
+}
+a
+{
+	text-decoration: none;
+	color: inherit;
+}
+
+
+th
+{
+	height: 5%;
+	width: 100%;
+}
+
+#LeBody
+{
+	overflow: scroll;
+}

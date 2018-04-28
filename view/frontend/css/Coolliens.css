@@ -1,0 +1,44 @@
+#SocialIcons
+{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 48px;
+  height: 180px;
+  float: right;
+  margin-top: 36vh;
+  opacity: 0;
+  margin-right: -500px;
+
+}
+
+
+.SocialBoutonclass {
+  z-index: 999;
+    height: 50px;
+    width: 50px;
+    background-color: #ededed;
+    display: inline-block;
+    border-radius: 150px;
+    cursor: pointer;
+    transform: rotate(-45deg);
+
+  }
+
+
+
+#SocialBoutonControl:checked ~ #SocialIcons
+{
+  margin-right: -120px; 
+  opacity: 1;
+  transition: 1s;
+}
+
+
+
+#SocialBoutonControl
+{
+  display: none;
+
+}
