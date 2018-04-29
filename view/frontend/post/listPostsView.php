@@ -10,7 +10,7 @@
 <body>
 
 
-<?php include("Menu.php"); ?>
+<?php include("frontend/Menu.php"); ?>
 
 <h1 class="Titre"> Liste des posts </h1>
 

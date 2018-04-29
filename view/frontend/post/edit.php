@@ -9,13 +9,14 @@
 </head>
 <body>
 
-<?php include("Menu.php"); ?>
+<?php include("frontend/Menu.php"); ?>
 
 <h1 class="Titre"> Modifier un article </h1>
 
 <div id="contenupage">
 
-<form action="index.php?action=editAction&amp;id=<?= $post['id'] ?>" method="post">
+<?php if (isset($_SESSION['id']) and isset($_SESSION['nickname']) and $_SESSION['role']==true) {?>
+<form method="post">
     <div>
         <label for="title">Titre</label><br />
         <input type="text" id="title" name="title" value="<?php echo $post['title']; ?>"/>
@@ -28,14 +29,14 @@
         <label for="content">Contenu</label><br />
         <textarea type="text" id="content" name="content"><?php echo $post['content']; ?></textarea>
     </div>
-    <div>
-        <label for="author">Auteur</label><br />
-        <input type="text" id="author" name="author" value="<?php echo $post['author']; ?>"/>
-    </div>
+        <input type="hidden" id="author" name="author" value="<?php echo $_SESSION['nickname']?>"/>
     <div>
         <input type="submit" value="Modifier" class="btn btn-warning" />
     </div>
 </form>
+<?php } else { ?>
+    <div class="center">Seul les administrateurs peuvent modifier des articles.</div>
+<?php } ?>
 </div>
 
 </body>

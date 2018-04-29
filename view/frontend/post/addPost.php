@@ -9,12 +9,12 @@
 </head>
 <body>
 
-<?php include("Menu.php"); ?>
+<?php include("frontend/Menu.php"); ?>
 
 <h1 class="Titre"> Rédiger un article </h1>
 <div id="contenupage">
-
-<form action="index.php?action=addNewPost" method="post">
+<?php if (isset($_SESSION['id']) and isset($_SESSION['nickname']) and $_SESSION['role']==true) {?>
+<form method="post">
     <div>
         <label for="title">Titre</label><br />
         <input type="text" id="title" name="title" />
@@ -27,15 +27,17 @@
         <label for="content">Contenu</label><br />
         <textarea type="text" id="content" name="content"> </textarea>
     </div>
+        <input type="hidden" id="author" name="author" value="<?php echo $_SESSION['nickname']?>" />
     <div>
-        <label for="author">Auteur</label><br />
-        <input type="text" id="author" name="author" />
+        Auteur : <strong> <?php echo $_SESSION['nickname']?> </strong><br /><br />
     </div>
     <div>
         <input type="submit" class="btn btn-success"/>
     </div>
 </form>
+<?php } else { ?>
+<div class="center">Seul les administrateurs peuvent ajouter des articles.</div>
 </div>
-
+<?php } ?>
 </body>
 </html>

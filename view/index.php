@@ -1,5 +1,7 @@
 <?php
-require('../controller/Controller.php');
+require('../controller/PostController.php');
+require('../controller/CommentController.php');
+require('../controller/UserController.php');
 
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
@@ -10,9 +12,11 @@ if (isset($_GET['action'])) {
         addPost();
     } elseif ($_GET['action'] == 'addNewPost') {
         if (isset($_POST['title'], $_POST['content'], $_POST['chapo'], $_POST['author'])) {
+            if (!empty($_POST['title'] && $_POST['content'] && $_POST['chapo'] && $_POST['author'])) {
                 addNewPost($_POST['title'], $_POST['content'], $_POST['chapo'], $_POST['author']);
-        } else {
-            echo 'Erreur : tous les champs ne sont pas remplis !';
+            } else {
+                echo 'Erreur : tous les champs ne sont pas remplis !';
+            }
         }
     } elseif ($_GET['action'] == 'edit') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -20,11 +24,7 @@ if (isset($_GET['action'])) {
         }
     } elseif ($_GET['action'] == 'delete') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
-            delete();
-        }
-    } elseif ($_GET['action'] == 'deleteAction') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            deleteAction($_GET['id']);
+            delete($_GET['id']);
         }
     } elseif ($_GET['action'] == 'post') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -42,13 +42,21 @@ if (isset($_GET['action'])) {
         } else {
             echo 'Erreur : aucun identifiant de billet envoyé';
         }
-    } elseif ($_GET['action'] == 'editAction') {
+    } elseif ($_GET['action'] == 'addUser') {
+        addUser();
+    } elseif ($_GET['action'] == 'login') {
+        login();
+    } elseif ($_GET['action'] == 'disconnection') {
+        disconnection();
+    } elseif ($_GET['action'] == 'commentTrue') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
-            if (!empty($_POST['author']) && !empty($_POST['content'])) {
-                addEditPost($_POST['title'], $_POST['chapo'], $_POST['content'], $_POST['author'], $_GET['id']);
-            } else {
-                echo 'Erreur : tous les champs ne sont pas remplis !';
-            }
+            commentTrue($_GET['id']);
+        } else {
+            echo 'Erreur : aucun identifiant de billet envoyé';
+        }
+    } elseif ($_GET['action'] == 'commentFalse') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            commentFalse($_GET['id']);
         } else {
             echo 'Erreur : aucun identifiant de billet envoyé';
         }

@@ -7,10 +7,6 @@
     overflow: hidden;
     opacity: 0.99;
     overflow-y: scroll;
-    
-
-
-
 }
 
 
@@ -27,7 +23,7 @@
     float: left;
     margin-top: 33.5vh;
     margin-left: -150px;
-    
+
 
 }
 
@@ -43,7 +39,7 @@
 .Bouton1
 {
 
-    
+
 }
 
 .Bouton2
@@ -70,11 +66,26 @@
     margin-top: 40px;
 }
 
+.BoutonConnexion
+{
+  margin-top: 30px;
+  margin-left: 110px;
+  position: absolute;
+  float: left;
+}
+
+.BoutonInscription
+{
+  margin-top: 100px;
+  margin-left: 110px;
+  position: absolute;
+  float: left;
+}
 
 
 
 .SideBarBouton {
-    
+
     z-index: 999;
     height: 50px;
     width: 50px;
@@ -84,6 +95,10 @@
     cursor: pointer;
 }
 
+.connectezVous
+{
+  color: #e67300;
+}
 
 
 /* BANDEAU NOIR GAUCHE */
@@ -126,7 +141,7 @@
 
 .CarreDroit
 {
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -204,7 +219,7 @@
     {
         display: none;
     }
-    
+
     .BandeauDroit
     {
         display: none;
@@ -275,7 +290,7 @@
 
 .Messageresponsive
     {
-        
+
         text-align: center;
         margin-top: 5vh;
         color: #1e1e1e;

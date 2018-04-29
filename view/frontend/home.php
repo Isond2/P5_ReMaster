@@ -48,9 +48,9 @@
 <!-- Les 3 liens vers Facebook Linkedin et Github !-->
 
 <div id="SocialIcons">
-<a href="#"><img src="frontend/img/fb.png" onmouseover="this.src='frontend/img/fbhover.png'" onmouseout="this.src='frontend/img/fb.png'" alt="Facebook"/></a>
-<a href="#"><img src="frontend/img/gh.png" onmouseover="this.src='frontend/img/ghhover.png'" onmouseout="this.src='frontend/img/gh.png'" alt="Github"/></a>
-<a href="#"><img src="frontend/img/in.png" onmouseover="this.src='frontend/img/inhover.png'" onmouseout="this.src='frontend/img/in.png'" alt="Linkedin"/></a>
+<a href="https://www.facebook.com/profile.php?id=100002242871188"><img src="frontend/img/fb.png" onmouseover="this.src='frontend/img/fbhover.png'" onmouseout="this.src='frontend/img/fb.png'" alt="Facebook"/></a>
+<a href="https://github.com/Isond2/P5_ReMaster"><img src="frontend/img/gh.png" onmouseover="this.src='frontend/img/ghhover.png'" onmouseout="this.src='frontend/img/gh.png'" alt="Github"/></a>
+<a href="https://www.linkedin.com/in/gomez-jos%C3%A9-adrian-455250140/"><img src="frontend/img/in.png" onmouseover="this.src='frontend/img/inhover.png'" onmouseout="this.src='frontend/img/in.png'" alt="Linkedin"/></a>
 </div>
 
 
