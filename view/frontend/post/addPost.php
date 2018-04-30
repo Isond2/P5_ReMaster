@@ -17,6 +17,7 @@
 
 
 <form action="index.php?action=addPost" method="post" >
+    <p><?php if (isset($error)) { echo htmlspecialchars($error); } ?></p>
     <div>
         <label for="title">Titre</label><br />
         <input type="text" id="title" name="title" />
