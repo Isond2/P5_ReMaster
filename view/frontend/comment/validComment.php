@@ -16,13 +16,13 @@
 
 <div id="contenupage" class="center">
     <?php if (isset($_SESSION['id']) and isset($_SESSION['nickname']) and $_SESSION['role']==true) {?>
-    <p><?php echo htmlspecialchars($message); ?></p>
+    <p><?php echo htmlspecialchars($message, ENT_QUOTES, 'UTF-8'); ?></p>
     <a href="index.php?action=listPosts" class="btn btn-default"> Revenir à la liste des arcticles </a>
     <br />
     <br />
     <form method="post">
             <input type="hidden" name="csrf" value="csrf">
-            <input type="submit" value="<?php echo htmlspecialchars($btn); ?>" class="btn btn-warning" />
+            <input type="submit" value="<?php echo htmlspecialchars($btn, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-warning" />
     </form>
     <?php } else { ?>
     <p> Vous ne disposez pas des droit nécéssaires pour l'administration des commentaires </p>
