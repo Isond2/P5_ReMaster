@@ -27,9 +27,9 @@
         <label for="content">Contenu</label><br />
         <textarea type="text" id="content" name="content"> </textarea>
     </div>
-        <input type="hidden" id="author" name="author" value="<?php echo htmlspecialchars($_SESSION['nickname'])?>" />
+        <input type="hidden" id="author" name="author" value="<?php echo addslashes($_SESSION['nickname'])?>" />
     <div>
-        Auteur : <strong> <?php echo htmlspecialchars($_SESSION['nickname']); ?> </strong><br /><br />
+        Auteur : <strong> <?php echo addslashes($_SESSION['nickname']); ?> </strong><br /><br />
     </div>
     <div>
         <input type="submit" class="btn btn-success"/>
