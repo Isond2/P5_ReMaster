@@ -20,13 +20,12 @@ function listPosts()
 
 function post()
 {
-    $id = $_GET['id'];
     $postManager = new PostManager();
     $commentManager = new CommentManager();
 
-    $post = $postManager->getPost($id);
-    $comments = $commentManager->getComments($id);
-    $approuvedComments = $commentManager->getApprouvedComments($id);
+    $post = $postManager->getPost($_GET['id']);
+    $comments = $commentManager->getComments($_GET['id']);
+    $approuvedComments = $commentManager->getApprouvedComments($_GET['id']);
 
     require('../view/frontend/post/postView.php');
 }
@@ -46,10 +45,9 @@ function edit()
 
         if ($editPost === false) {
             throw new Exception('Impossible de modifier l\'article !');
-            return;
-        }
+        } else {
             header('Location: index.php?action=post&id=' . $_GET['id']);
-
+        }
     }
 
     require('../view/frontend/post/edit.php');
@@ -76,28 +74,27 @@ function addPost()
 
         if (empty($_POST["title"])) {
             $titleErr = "title is required";
-            return;
-        }
+        } else {
             $title = test_input($_POST["title"]);
+        }
 
         if (empty($_POST["chapo"])) {
             $chapoErr = "chapo is required";
-            return;
-        }
+        } else {
             $chapo = test_input($_POST["chapo"]);
-
+        }
 
         if (empty($_POST["content"])) {
             $contentErr = "content is required";
-            return;
-        }
+        } else {
             $content = test_input($_POST["content"]);
+        }
 
         if (empty($_POST["author"])) {
             $authorErr = "author is required";
-            return;
-        }
+        } else {
             $author = test_input($_POST["author"]);
+        }
 
         if (isset($title, $content, $chapo, $author)) {
 
@@ -109,10 +106,9 @@ function addPost()
 
         if ($req === false) {
             throw new Exception('Impossible d\'ajouter le post !');
-            return;
-        }
+        } else {
             header('Location: index.php?action=listPosts');
-
+        }
     }
     require('../view/frontend/post/addPost.php');
 }
