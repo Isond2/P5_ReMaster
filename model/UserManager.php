@@ -11,8 +11,8 @@ class UserManager extends Manager
         $email=htmlspecialchars($email);
 
         $pass_hache = password_hash($password, PASSWORD_DEFAULT);
-        $db = $this->dbConnect();
-        $req = $db->prepare('INSERT INTO users SET nickname = ?, password =?, email =?, registration_date =NOW(), admin =false');
+        $database = $this->dbConnect();
+        $req = $database->prepare('INSERT INTO users SET nickname = ?, password =?, email =?, registration_date =NOW(), admin =false');
         $req->execute(array($nickname, $pass_hache, $email));
 
         return $req;
@@ -21,8 +21,8 @@ class UserManager extends Manager
 
     public function logUser($nickname, $password)
     {
-        $db = $this->dbConnect();
-        $req = $db->prepare('SELECT * FROM users WHERE nickname = ?');
+        $database = $this->dbConnect();
+        $req = $database->prepare('SELECT * FROM users WHERE nickname = ?');
         $req->execute(array($nickname));
         $user = $req->fetch();
 

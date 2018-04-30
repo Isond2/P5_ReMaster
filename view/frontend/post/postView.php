@@ -18,14 +18,14 @@
 <h1 class="Titre"> Article </h1>
 <div id="contenupage">
 
-    <p class="arcticle_date_auteur"><span class ="Dernieremodif"> Dernière modification le : </span> <?php echo $post['creation_date_fr']; ?> <br/> </p>
+    <p class="arcticle_date_auteur"><span class ="Dernieremodif"> Dernière modification le : </span> <?php echo htmlspecialchars($post['creation_date_fr']); ?> <br/> </p>
 
-    <h1 class="arcticle_titre"><?php echo $post['title']; ?></h1>
+    <h1 class="arcticle_titre"><?php echo htmlspecialchars($post['title']); ?></h1>
 
-    <p class="arcticle_date_auteur">Auteur : <br/> <?php echo $post['author']; ?> <br/> </p>
+    <p class="arcticle_date_auteur">Auteur : <br/> <?php echo htmlspecialchars($post['author']); ?> <br/> </p>
 
-    <h3><?php echo $post['chapo']; ?></h3>
-    <p class="arcticle_contenu"><?php echo $post['content']; ?></p>
+    <h3><?php echo htmlspecialchars($post['chapo']); ?></h3>
+    <p class="arcticle_contenu"><?php echo htmlspecialchars($post['content']); ?></p>
 
     <?php if (isset($_SESSION['id']) and isset($_SESSION['nickname']) and $_SESSION['role']==true) {?>
         <a href="index.php?action=edit&amp;id=<?= $post['id'] ?>" class="btn btn-default"> Modifier </a>
@@ -37,7 +37,7 @@
 <h2>Ajouter un commentaire</h2>
 <?php if (isset($_SESSION['id']) and isset($_SESSION['nickname'])) {?>
 <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
-        <input type="hidden" id="author" name="author" value="<?php echo $_SESSION['nickname'] ?>" />
+        <input type="hidden" id="author" name="author" value="<?php echo htmlspecialchars($_SESSION['nickname']) ?>" />
     <div>
         <label for="comment">Commentaire :</label><br />
         <textarea id="comment" name="comment"></textarea>
