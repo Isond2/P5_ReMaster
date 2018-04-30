@@ -10,14 +10,6 @@ if (isset($_GET['action'])) {
         home();
     } elseif ($_GET['action'] == 'addPost') {
         addPost();
-    } elseif ($_GET['action'] == 'addNewPost') {
-        if (isset($_POST['title'], $_POST['content'], $_POST['chapo'], $_POST['author'])) {
-            if (!empty($_POST['title'] && $_POST['content'] && $_POST['chapo'] && $_POST['author'])) {
-                addNewPost($_POST['title'], $_POST['content'], $_POST['chapo'], $_POST['author']);
-            } else {
-                echo 'Erreur : tous les champs ne sont pas remplis !';
-            }
-        }
     } elseif ($_GET['action'] == 'edit') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             edit();

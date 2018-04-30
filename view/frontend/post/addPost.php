@@ -14,7 +14,9 @@
 <h1 class="Titre"> Rédiger un article </h1>
 <div id="contenupage">
 <?php if (isset($_SESSION['id']) and isset($_SESSION['nickname']) and $_SESSION['role']==true) {?>
-<form method="post">
+
+
+<form action="index.php?action=addPost" method="post" >
     <div>
         <label for="title">Titre</label><br />
         <input type="text" id="title" name="title" />
@@ -27,9 +29,9 @@
         <label for="content">Contenu</label><br />
         <textarea type="text" id="content" name="content"> </textarea>
     </div>
-        <input type="hidden" id="author" name="author" value="<?php echo addslashes($_SESSION['nickname'])?>" />
+        <input type="hidden" id="author" name="author" value="<?php echo htmlspecialchars($_SESSION['nickname'])?>" />
     <div>
-        Auteur : <strong> <?php echo addslashes($_SESSION['nickname']); ?> </strong><br /><br />
+        Auteur : <strong> <?php echo htmlspecialchars($_SESSION['nickname']); ?> </strong><br /><br />
     </div>
     <div>
         <input type="submit" class="btn btn-success"/>

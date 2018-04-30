@@ -70,21 +70,54 @@ function delete($postId)
 
 function addPost()
 {
-    if (isset($_POST['title'], $_POST['chapo'], $_POST['content'], $_POST['author'])) {
-        $title = htmlspecialchars($_POST['title']);
-        $chapo = htmlspecialchars($_POST['chapo']);
-        $content = htmlspecialchars($_POST['content']);
-        $author = htmlspecialchars($_POST['author']);
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        $postManager = new PostManager();
+        if (empty($_POST["title"])) {
+            $titleErr = "title is required";
+            return;
+        }
+            $title = test_input($_POST["title"]);
 
-        $req = $postManager->addNewPost($title, $content, $chapo, $author);
+        if (empty($_POST["chapo"])) {
+            $chapoErr = "chapo is required";
+            return;
+        }
+            $chapo = test_input($_POST["chapo"]);
+
+
+        if (empty($_POST["content"])) {
+            $contentErr = "content is required";
+            return;
+        }
+            $content = test_input($_POST["content"]);
+
+        if (empty($_POST["author"])) {
+            $authorErr = "author is required";
+            return;
+        }
+            $author = test_input($_POST["author"]);
+
+        if (isset($title, $content, $chapo, $author)) {
+
+            $postManager = new PostManager();
+            $req = $postManager->addNewPost($title, $content, $chapo, $author);
+        }
+
+
 
         if ($req === false) {
             throw new Exception('Impossible d\'ajouter le post !');
-        } else {
-            header('Location: index.php?action=listPosts');
+            return;
         }
+            header('Location: index.php?action=listPosts');
+
     }
     require('../view/frontend/post/addPost.php');
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
 }
