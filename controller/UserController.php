@@ -4,7 +4,7 @@ require_once('../model/UserManager.php');
 
 function addUser()
 {
-    require('../view/frontend/user/addUser.php');
+
 
     if (isset($_POST['nickname'], $_POST['password'], $_POST['email'])) {
         $userManager = new UserManager();
@@ -14,9 +14,9 @@ function addUser()
         if ($req === false) {
             throw new Exception('Impossible d\'ajouter l\' utilisateur !');
         } else {
-            header('Location: index.php?action=listPosts');
         }
     }
+    require('../view/frontend/user/addUser.php');
 }
 
 

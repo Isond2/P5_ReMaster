@@ -61,7 +61,7 @@
 
 <div id="Contact">
 <div class="row">
-<form name="formcontact" action="Envoiemail.php" method="post" >
+<form name="formcontact" action="frontend/user/contactEmail.php" method="post" >
   <span>
     <input class="slider" name="nom" id="name" type="text" />
     <label for="name">NOM</label>
@@ -92,6 +92,7 @@
 <div class="nomprenom">
   <h2 class="PRENOM1">JOSE - ADRIAN</h2>
   <h1 class="NOMDEFAMILLE">GOMEZ</h1>
+  <h6>Développeur d'application<br />PHP Symfony</h6>
 </div>
 
 

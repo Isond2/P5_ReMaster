@@ -14,7 +14,7 @@
 <?php include 'frontend/Menu.php'; ?>
 
 
-<?php if (isset($comments)) { ?>
+<?php if (isset($post)) { ?>
 <h1 class="Titre"> Article </h1>
 <div id="contenupage">
 

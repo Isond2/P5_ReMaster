@@ -16,16 +16,16 @@
 
 <form method="post">
     <div>
-        <label for="nickname">nickname</label><br />
+        <label for="nickname">Pseudo :</label><br />
         <input type="text" id="nickname" name="nickname" />
     </div>
     <div>
-        <label for="password">password</label><br />
-        <input type="text" id="password" name="password" />
+        <label for="password">Mot de passe :</label><br />
+        <input type="password" id="password" name="password" />
     </div>
     <div>
-        <label for="email">email</label><br />
-        <textarea type="text" id="email" name="email"> </textarea>
+        <label for="email">Email :</label><br />
+        <input type="email" id="email" name="email" />
     </div>
     <div>
         <input type="submit" class="btn btn-success"/>

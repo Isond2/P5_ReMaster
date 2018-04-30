@@ -4,11 +4,13 @@
     padding:0;
     background:linear-gradient(rgba(237,237,237,0.99),rgba(237,237,237,0.3)),url("");
     background-color: #ededed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
     overflow: hidden;
     opacity: 0.99;
     overflow-y: scroll;
 }
-
 
 
 #SideBarControl
@@ -81,6 +83,14 @@
   position: absolute;
   float: left;
 }
+
+.BoutonConnexionResponsivee
+{
+  text-align: center;
+  float: right;
+  color: white;
+}
+
 
 
 
@@ -204,9 +214,18 @@
 @media screen and (max-width: 980px)
 {
         /* barre gauche */
+    #LeBody
+    {
+      background-image: url("");
+    }
     .BandeauGauche
     {
         display: none;
+    }
+
+    .connect
+    {
+      display: none;
     }
 
     #SideBar
@@ -283,7 +302,6 @@
         display: none;
     }
 }
-
 
 
 

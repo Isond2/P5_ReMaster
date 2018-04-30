@@ -49,7 +49,6 @@ function edit()
             return;
         }
             header('Location: index.php?action=post&id=' . $_GET['id']);
-
     }
 
     require('../view/frontend/post/edit.php');
@@ -73,10 +72,8 @@ function delete($postId)
 function addPost()
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
         if (empty($_POST["title"]) || empty($_POST["chapo"]) || empty($_POST["content"]) || empty($_POST["author"])) {
             $error = "Vous devez remplir tout les champs";
-
         } else {
             $title = test_input($_POST["title"]);
             $chapo = test_input($_POST["chapo"]);
@@ -84,9 +81,7 @@ function addPost()
             $author = test_input($_POST["author"]);
         }
 
-
         if (isset($title, $content, $chapo, $author)) {
-
             $postManager = new PostManager();
             $req = $postManager->addNewPost($title, $content, $chapo, $author);
             header('Location: index.php?action=listPosts');
@@ -95,9 +90,10 @@ function addPost()
     require('../view/frontend/post/addPost.php');
 }
 
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
 }

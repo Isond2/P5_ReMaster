@@ -59,6 +59,8 @@
   padding: 10px 5px 10px 40px;
   font-family: verdana;
   font-size: 10px;
+  text-align: center;
+  word-wrap: : break-word;
   color: #1e1e1e;
   background: #f7f7f7;
   border: 0;
@@ -71,6 +73,7 @@
   height: 250px;
   padding: 13px 5px 10px 60px;
   resize: none;
+  word-break: break-all;
 }
 #msg + label {
   top: 26px;

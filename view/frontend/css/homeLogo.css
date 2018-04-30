@@ -1,0 +1,14 @@
+#LeBody
+{
+    margin: 0;
+    padding:0;
+    background:linear-gradient(rgba(237,237,237,0.99),rgba(237,237,237,0.3)),url("");
+    background-color: #ededed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+    overflow: hidden;
+    opacity: 0.99;
+    overflow-y: scroll;
+    background-image: url("../img/logo.jpg");
+}
