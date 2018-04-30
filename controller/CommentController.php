@@ -4,8 +4,9 @@ require_once('../model/CommentManager.php');
 function addComment($postId, $author, $comment)
 {
     $commentManager = new CommentManager();
-
-    $affectedLines = $commentManager->postComment($postId, $author, $comment);
+    $safeAuthor = htmlspecialchars($author);
+    $safeComment = htmlspecialchars($comment);
+    $affectedLines = $commentManager->postComment($postId, $safeAuthor, $safeComment);
 
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter le commentaire !');
