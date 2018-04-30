@@ -18,14 +18,14 @@
 <h1 class="Titre"> Article </h1>
 <div id="contenupage">
 
-    <p class="arcticle_date_auteur"><span class ="Dernieremodif"> Dernière modification le : </span> <?php echo htmlentities($post['creation_date_fr']); ?> <br/> </p>
+    <p class="arcticle_date_auteur"><span class ="Dernieremodif"> Dernière modification le : </span> <?php echo esc_attr($post['creation_date_fr']); ?> <br/> </p>
 
-    <h1 class="arcticle_titre"><?php echo htmlentities($post['title']); ?></h1>
+    <h1 class="arcticle_titre"><?php echo esc_attr($post['title']); ?></h1>
 
-    <p class="arcticle_date_auteur">Auteur : <br/> <?php echo htmlentities($post['author']); ?> <br/> </p>
+    <p class="arcticle_date_auteur">Auteur : <br/> <?php echo esc_attr($post['author']); ?> <br/> </p>
 
-    <h3><?php echo htmlentities($post['chapo']); ?></h3>
-    <p class="arcticle_contenu"><?php echo htmlentities($post['content']); ?></p>
+    <h3><?php echo esc_attr($post['chapo']); ?></h3>
+    <p class="arcticle_contenu"><?php echo esc_attr($post['content']); ?></p>
 
     <?php if (isset($_SESSION['id']) and isset($_SESSION['nickname']) and $_SESSION['role']==true) {?>
         <a href="index.php?action=edit&amp;id=<?= $post['id'] ?>" class="btn btn-default"> Modifier </a>
@@ -37,7 +37,7 @@
 <h2>Ajouter un commentaire</h2>
 <?php if (isset($_SESSION['id']) and isset($_SESSION['nickname'])) {?>
 <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
-        <input type="hidden" id="author" name="author" value="<?php echo htmlentities($_SESSION['nickname']) ?>" />
+        <input type="hidden" id="author" name="author" value="<?php echo esc_attr($_SESSION['nickname']) ?>" />
     <div>
         <label for="comment">Commentaire :</label><br />
         <textarea id="comment" name="comment"></textarea>
@@ -59,7 +59,7 @@
 while ($falseComments = $approuvedComments->fetch()) {
 ?>
     <p><strong><?= $falseComments['author'] ?></strong> le <?= $falseComments['comment_date_fr'] ?></p>
-    <p><?= nl2br(htmlentities($falseComments['comment'])) ?></p> <a href="index.php?action=commentTrue&amp;id=<?= $falseComments['id'] ?>" class="btn btn-default" > Valider </a><a href="index.php?action=commentFalse&amp;id=<?= $falseComments['id'] ?>" class="btn btn-default"> Supprimer </a>
+    <p><?= nl2br(esc_attr($falseComments['comment'])) ?></p> <a href="index.php?action=commentTrue&amp;id=<?= $falseComments['id'] ?>" class="btn btn-default" > Valider </a><a href="index.php?action=commentFalse&amp;id=<?= $falseComments['id'] ?>" class="btn btn-default"> Supprimer </a>
 <?php
 }
 ?>
@@ -72,7 +72,7 @@ while ($falseComments = $approuvedComments->fetch()) {
 while ($trueComment = $comments->fetch()) {
 ?>
     <p><strong><?= $trueComment['author'] ?></strong> le <?= $trueComment['comment_date_fr'] ?></p>
-    <p><?= nl2br(htmlentities($trueComment['comment'])) ?></p>
+    <p><?= nl2br(esc_attr($trueComment['comment'])) ?></p>
 <?php
 }
 ?>
