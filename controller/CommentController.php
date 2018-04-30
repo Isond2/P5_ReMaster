@@ -14,14 +14,6 @@ function addComment($postId, $author, $comment)
     }
 }
 
-function commentValidationForm($commentId)
-{
-
-    $commentManager = new CommentManager();
-    $comment = $commentManager->getComment($commentId);
-    require('../view/frontend/comment/validComment.php');
-}
-
 function commentTrue($commentId)
 {
     $commentManager = new CommentManager();

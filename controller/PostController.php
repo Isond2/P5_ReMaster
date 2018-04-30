@@ -20,12 +20,13 @@ function listPosts()
 
 function post()
 {
+    $id = $_GET['id'];
     $postManager = new PostManager();
     $commentManager = new CommentManager();
 
-    $post = $postManager->getPost($_GET['id']);
-    $comments = $commentManager->getComments($_GET['id']);
-    $approuvedComments = $commentManager->getApprouvedComments($_GET['id']);
+    $post = $postManager->getPost($id);
+    $comments = $commentManager->getComments($id);
+    $approuvedComments = $commentManager->getApprouvedComments($id);
 
     require('../view/frontend/post/postView.php');
 }
@@ -45,9 +46,10 @@ function edit()
 
         if ($editPost === false) {
             throw new Exception('Impossible de modifier l\'article !');
-        } else {
-            header('Location: index.php?action=post&id=' . $_GET['id']);
+            return;
         }
+            header('Location: index.php?action=post&id=' . $_GET['id']);
+
     }
 
     require('../view/frontend/post/edit.php');
@@ -74,27 +76,28 @@ function addPost()
 
         if (empty($_POST["title"])) {
             $titleErr = "title is required";
-        } else {
-            $title = test_input($_POST["title"]);
+            return;
         }
+            $title = test_input($_POST["title"]);
 
         if (empty($_POST["chapo"])) {
             $chapoErr = "chapo is required";
-        } else {
-            $chapo = test_input($_POST["chapo"]);
+            return;
         }
+            $chapo = test_input($_POST["chapo"]);
+
 
         if (empty($_POST["content"])) {
             $contentErr = "content is required";
-        } else {
-            $content = test_input($_POST["content"]);
+            return;
         }
+            $content = test_input($_POST["content"]);
 
         if (empty($_POST["author"])) {
             $authorErr = "author is required";
-        } else {
-            $author = test_input($_POST["author"]);
+            return;
         }
+            $author = test_input($_POST["author"]);
 
         if (isset($title, $content, $chapo, $author)) {
 
@@ -106,9 +109,10 @@ function addPost()
 
         if ($req === false) {
             throw new Exception('Impossible d\'ajouter le post !');
-        } else {
-            header('Location: index.php?action=listPosts');
+            return;
         }
+            header('Location: index.php?action=listPosts');
+
     }
     require('../view/frontend/post/addPost.php');
 }
