@@ -20,12 +20,13 @@ function listPosts()
 
 function post()
 {
+    $id = $_GET['id'];
     $postManager = new PostManager();
     $commentManager = new CommentManager();
 
-    $post = $postManager->getPost($_GET['id']);
-    $comments = $commentManager->getComments($_GET['id']);
-    $approuvedComments = $commentManager->getApprouvedComments($_GET['id']);
+    $post = $postManager->getPost($id);
+    $comments = $commentManager->getComments($id);
+    $approuvedComments = $commentManager->getApprouvedComments($id);
 
     require('../view/frontend/post/postView.php');
 }
@@ -45,9 +46,10 @@ function edit()
 
         if ($editPost === false) {
             throw new Exception('Impossible de modifier l\'article !');
-        } else {
-            header('Location: index.php?action=post&id=' . $_GET['id']);
+            return;
         }
+            header('Location: index.php?action=post&id=' . $_GET['id']);
+
     }
 
     require('../view/frontend/post/edit.php');

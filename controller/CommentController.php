@@ -27,7 +27,7 @@ function commentTrue($commentId)
     $commentManager = new CommentManager();
     $comment = $commentManager->getComment($commentId);
 
-    if (isset(wp_verify_nonce($_POST['csrf']))) {
+    if (isset($_POST['csrf'])) {
         $comment = $commentManager->commentValidation($commentId);
         header('Location: index.php?action=listPosts');
     }
