@@ -1,48 +1,57 @@
 <?php
 require_once('../model/CommentManager.php');
 
-function addComment($postId, $author, $comment)
+/**
+*
+*/
+class CommentController
 {
-    $commentManager = new CommentManager();
-    $safeAuthor = htmlspecialchars($author);
-    $safeComment = htmlspecialchars($comment);
-    $affectedLines = $commentManager->postComment($postId, $safeAuthor, $safeComment);
+    private $commentManager;
 
-    if ($affectedLines === false) {
-        throw new Exception('Impossible d\'ajouter le commentaire !');
-    } else {
-        header('Location: index.php?action=post&id=' . $postId);
-    }
-}
-
-function commentTrue($commentId)
-{
-    $commentManager = new CommentManager();
-    $comment = $commentManager->getComment($commentId);
-
-    if (isset($_POST['csrf'])) {
-        $comment = $commentManager->commentValidation($commentId);
-        header('Location: index.php?action=listPosts');
+    function __construct() {
+        $this->commentManager= new CommentManager();
     }
 
-    $message = 'Êtes vous sur de vouloir valider le commentaire " '. $comment['comment'].' " ? ' ;
-    $btn = 'Valider';
+    function addComment($postId, $author, $comment)
+    {
+        $safeAuthor = htmlspecialchars($author);
+        $safeComment = htmlspecialchars($comment);
+        $affectedLines = $this->commentManager->postComment($postId, $safeAuthor, $safeComment);
 
-    require('../view/frontend/comment/validComment.php');
-}
-
-function commentFalse($commentId)
-{
-    $commentManager = new CommentManager();
-    $comment = $commentManager->getComment($commentId);
-
-    if (isset($_POST['csrf'])) {
-        $comment = $commentManager->commentRejection($commentId);
-        header('Location: index.php?action=listPosts');
+        if ($affectedLines === false) {
+            throw new Exception('Impossible d\'ajouter le commentaire !');
+        } else {
+            header('Location: index.php?action=post&id=' . $postId);
+        }
     }
 
-    $message = 'Êtes vous sur de vouloir supprimer le commentaire " '. $comment['comment'].' " ? ' ;
-    $btn = 'Supprimer';
+    function commentTrue($commentId)
+    {
+        $comment = $this->commentManager->getComment($commentId);
 
-    require('../view/frontend/comment/validComment.php');
+        if (isset($_POST['csrf'])) {
+            $comment = $this->commentManager->commentValidation($commentId);
+            header('Location: index.php?action=listPosts');
+        }
+
+        $message = 'Êtes vous sur de vouloir valider le commentaire " '. $comment['comment'].' " ? ' ;
+        $btn = 'Valider';
+
+        require('../view/frontend/comment/validComment.php');
+    }
+
+    function commentFalse($commentId)
+    {
+        $comment = $this->commentManager->getComment($commentId);
+
+        if (isset($_POST['csrf'])) {
+            $comment = $this->commentManager->commentRejection($commentId);
+            header('Location: index.php?action=listPosts');
+        }
+
+        $message = 'Êtes vous sur de vouloir supprimer le commentaire " '. $comment['comment'].' " ? ' ;
+        $btn = 'Supprimer';
+
+        require('../view/frontend/comment/validComment.php');
+    }
 }
