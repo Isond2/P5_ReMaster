@@ -35,7 +35,11 @@
 
 
 <h2>Ajouter un commentaire</h2>
-<?php if (isset($_SESSION['id']) and isset($_SESSION['nickname'])) {?>
+
+    <?php if (isset($_SESSION['id']) and isset($_SESSION['nickname'])) {
+    $token = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
+    $_SESSION['token'] = $token;?>
+
 <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
         <input type="hidden" id="author" name="author" value="<?php echo htmlentities($_SESSION['nickname']) ?>" />
     <div>
@@ -45,6 +49,7 @@
     <div>
         <input type="submit" class="btn btn-default" value="Envoyer" />
     </div>
+    <input type="hidden" name="token" id="token" value="<?php echo $token; ?>" />
 </form>
 <?php } else { ?>
     <div><span class="connectezVous"><a href="index.php?action=login">Connectez-vous</a></span> pour pouvoir poster des commentaires</div>

@@ -9,13 +9,16 @@
 </head>
 <body>
 
-<?php include("frontend/Menu.php"); ?>
+<?php include("frontend/Menu.php");
+$token = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
+$_SESSION['token'] = $token;
+?>
 
 <h1 class="Titre"> Modifier un article </h1>
 
 <div id="contenupage">
 
-<?php if (isset($_SESSION['id']) and isset($_SESSION['nickname']) and $_SESSION['role']==true) {?>
+
 <form method="post">
     <div>
         <label for="title">Titre</label><br />
@@ -33,10 +36,9 @@
     <div>
         <input type="submit" value="Modifier" class="btn btn-warning" />
     </div>
+    <input type="hidden" name="token" id="token" value="<?php echo $token; ?>" />
 </form>
-<?php } else { ?>
-    <div class="center">Seul les administrateurs peuvent modifier des articles.</div>
-<?php } ?>
+
 </div>
 
 </body>

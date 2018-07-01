@@ -26,6 +26,8 @@ class Routeur
 	        $this->postController->listPosts();
 	    } elseif ($_GET['action'] == 'home') {
 	        $this->postController->home();
+	    } elseif ($_GET['action'] == 'access-denied') {
+	        $this->postController->accessDenied();
 	    } elseif ($_GET['action'] == 'addPost') {
 	        $this->postController->addPost();
 	    } elseif ($_GET['action'] == 'edit') {
