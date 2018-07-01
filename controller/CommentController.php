@@ -14,44 +14,93 @@ class CommentController
 
     function addComment($postId, $author, $comment)
     {
-        $safeAuthor = htmlspecialchars($author);
-        $safeComment = htmlspecialchars($comment);
-        $affectedLines = $this->commentManager->postComment($postId, $safeAuthor, $safeComment);
+        session_start();
+        if (isset($_SESSION['id']) and isset($_SESSION['nickname']) and $_SESSION['role']==true)
+        {
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                if (isset($_SESSION['token']) AND isset($_POST['token']) AND !empty($_SESSION['token']) AND !empty($_POST['token'])) {
+                    if ($_SESSION['token'] == $_POST['token']) {
 
-        if ($affectedLines === false) {
-            throw new Exception('Impossible d\'ajouter le commentaire !');
+                        $safeAuthor = $this->test_input($author);
+                        $safeComment = $this->test_input($comment);
+                        $affectedLines = $this->commentManager->postComment($postId, $safeAuthor, $safeComment);
+
+                        if ($affectedLines === false) {
+                            throw new Exception('Impossible d\'ajouter le commentaire !');
+                        } else {
+                            header('Location: index.php?action=post&id=' . $postId);
+                        }
+                    } else {
+                        header('Location: index.php?action=access-denied');
+                    }
+                }
+            }
         } else {
-            header('Location: index.php?action=post&id=' . $postId);
+            header('Location: index.php?action=access-denied');
         }
     }
+
+
+
 
     function commentTrue($commentId)
     {
-        $comment = $this->commentManager->getComment($commentId);
+        session_start();
+        if (isset($_SESSION['id']) and isset($_SESSION['nickname']) and $_SESSION['role']==true)
+        {
+            $comment = $this->commentManager->getComment($commentId);
+            $postId = $comment['post_id'];
+            $message = 'Êtes vous sur de vouloir valider le commentaire " '. $comment['comment'].' " ? ' ;
+            $btn = 'Valider';
 
-        if (isset($_POST['csrf'])) {
-            $comment = $this->commentManager->commentValidation($commentId);
-            header('Location: index.php?action=listPosts');
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                if (isset($_SESSION['token']) AND isset($_POST['token']) AND !empty($_SESSION['token']) AND !empty($_POST['token'])) {
+                    if ($_SESSION['token'] == $_POST['token']) {
+                        $comment = $this->commentManager->commentValidation($commentId);
+                        header('Location: index.php?action=post&id=' . $postId);
+                    } else {
+                        header('Location: index.php?action=access-denied');
+                    }
+                }
+            }
+        } else {
+            header('Location: index.php?action=access-denied');
         }
-
-        $message = 'Êtes vous sur de vouloir valider le commentaire " '. $comment['comment'].' " ? ' ;
-        $btn = 'Valider';
-
         require('../view/frontend/comment/validComment.php');
     }
 
+
     function commentFalse($commentId)
     {
-        $comment = $this->commentManager->getComment($commentId);
+        session_start();
+        if (isset($_SESSION['id']) and isset($_SESSION['nickname']) and $_SESSION['role']==true)
+        {
+            $comment = $this->commentManager->getComment($commentId);
+            $postId = $comment['post_id'];
+            $message = 'Êtes vous sur de vouloir supprimer le commentaire " '. $comment['comment'].' " ? ' ;
+            $btn = 'Supprimer';
 
-        if (isset($_POST['csrf'])) {
-            $comment = $this->commentManager->commentRejection($commentId);
-            header('Location: index.php?action=listPosts');
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                if (isset($_SESSION['token']) AND isset($_POST['token']) AND !empty($_SESSION['token']) AND !empty($_POST['token'])) {
+                    if ($_SESSION['token'] == $_POST['token']) {
+                        $comment = $this->commentManager->commentRejection($commentId);
+                        header('Location: index.php?action=post&id=' . $postId);
+                    } else {
+                        header('Location: index.php?action=access-denied');
+                    }
+                }
+            }
+        } else {
+            header('Location: index.php?action=access-denied');
         }
-
-        $message = 'Êtes vous sur de vouloir supprimer le commentaire " '. $comment['comment'].' " ? ' ;
-        $btn = 'Supprimer';
-
         require('../view/frontend/comment/validComment.php');
+    }
+
+    public function test_input($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlentities(strip_tags($data));
+        return $data;
     }
 }

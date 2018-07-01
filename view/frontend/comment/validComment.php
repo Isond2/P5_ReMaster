@@ -9,24 +9,23 @@
 </head>
 <body>
 
-<?php include("frontend/Menu.php"); ?>
+<?php include("frontend/Menu.php");
+$token = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
+$_SESSION['token'] = $token;
+?>
 
 <h1 class="Titre"> Valider un commentaire </h1>
 
 
 <div id="contenupage" class="center">
-    <?php if (isset($_SESSION['id']) and isset($_SESSION['nickname']) and $_SESSION['role']==true) {?>
     <p><?php echo htmlspecialchars($message); ?></p>
     <a href="index.php?action=listPosts" class="btn btn-default"> Revenir à la liste des arcticles </a>
     <br />
     <br />
     <form method="post">
-            <input type="hidden" name="csrf" value="csrf">
-            <input type="submit" value="<?php echo htmlspecialchars($btn); ?>" class="btn btn-warning" />
+        <input type="submit" value="<?php echo htmlspecialchars($btn); ?>" class="btn btn-warning" />
+        <input type="hidden" name="token" id="token" value="<?php echo $token; ?>" />
     </form>
-    <?php } else { ?>
-    <p> Vous ne disposez pas des droit nécéssaires pour l'administration des commentaires </p>
-    <?php } ?>
 </div>
 
 </body>

@@ -58,4 +58,13 @@ class CommentManager extends Manager
 
         return $rejectedComment;
     }
+
+    public function deleteCommentsFromPost($postId)
+    {
+        $database = $this->dbConnect();
+        $comment = $database->prepare('DELETE FROM comments WHERE post_id = ?');
+        $deleteCommentsFromPost = $comment->execute(array($postId));
+
+        return $deleteCommentsFromPost;
+    }
 }
