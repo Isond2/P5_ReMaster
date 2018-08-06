@@ -16,7 +16,7 @@ $_SESSION['token'] = $token;
 
 
 
-<h1 class="Titre"> Rédiger un article </h1>
+<h1 class="Titre">Rédiger un article </h1>
 <div id="contenupage">
 
 
