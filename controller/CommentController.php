@@ -73,7 +73,7 @@ class CommentController
     function commentFalse($commentId)
     {
         session_start();
-        if (isset($_SESSION['id']) and isset($_SESSION['nickname']) and $_SESSION['role']==true)
+        if (isset($_SESSION['nickname']) and isset($_SESSION['id']) and $_SESSION['role']==true)
         {
             $comment = $this->commentManager->getComment($commentId);
             $postId = $comment['post_id'];
