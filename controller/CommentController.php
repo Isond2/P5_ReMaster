@@ -45,7 +45,6 @@ class CommentController
 
     public function commentTrue($commentId)
     {
-        session_start();
         if ($this->isAdmin()===true)
         {
             $comment = $this->commentManager->getComment($commentId);
@@ -72,7 +71,6 @@ class CommentController
 
     public function commentFalse($commentId)
     {
-        session_start();
         if ($this->isAdmin()===true)
         {
             $comment = $this->commentManager->getComment($commentId);
