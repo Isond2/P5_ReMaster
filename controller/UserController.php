@@ -30,15 +30,21 @@ class UserController
 
     function login()
     {
-        require('../view/frontend/user/login.php');
 
         if (isset($_POST['nickname'], $_POST['password'])) {
 
             $nickname = $this->test_input($_POST['nickname']);
             $password = $this->test_input($_POST['password']);
+            $req = $this->userManager->logUser($nickname, $password);
 
-            $this->userManager->logUser($nickname, $password);
+            if ($req === false) {
+                $error = 'Mauvais identifiant ou mot de passe !';
+            } else {
+                header('Location: index.php?action=listPosts');
+            }
         }
+
+        require('../view/frontend/user/login.php');
     }
 
     function disconnection()

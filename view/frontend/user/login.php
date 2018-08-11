@@ -11,10 +11,11 @@
 
 <?php include("frontend/Menu.php"); ?>
 
-<h1 class="Titre"> Se connecter </h1>
+<h1 class="Titre"> Se connectessr </h1>
 <div id="contenupage">
 
-<form method="post">
+<form action="index.php?action=login" method="post">
+    <p><?php if (isset($error)) { echo htmlspecialchars($error); } ?></p>
     <div>
         <label for="nickname">Pseudo :</label><br />
         <input type="text" id="nickname" name="nickname" />

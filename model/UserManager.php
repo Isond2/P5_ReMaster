@@ -34,7 +34,6 @@ class UserManager extends Manager
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['nickname'] = $user['nickname'];
                 $_SESSION['role'] = $user['admin'];
-                header('Location: index.php?action=listPosts');
             } else {
                 $error = 'Mauvais identifiant ou mot de passe !';
             }
