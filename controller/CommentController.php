@@ -8,14 +8,14 @@ class CommentController
 {
     private $commentManager;
 
-    function __construct() {
+    public function __construct() {
         $this->commentManager= new CommentManager();
     }
 
-    function addComment($postId, $author, $comment)
+    public function addComment($postId, $author, $comment)
     {
         session_start();
-        if (isset($_SESSION['id']) and isset($_SESSION['nickname']) and $_SESSION['role']==true)
+        if (isset($_SESSION['id']) and isset($_SESSION['nickname']))
         {
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (isset($_SESSION['token']) AND isset($_POST['token']) AND !empty($_SESSION['token']) AND !empty($_POST['token'])) {
@@ -43,10 +43,10 @@ class CommentController
 
 
 
-    function commentTrue($commentId)
+    public function commentTrue($commentId)
     {
         session_start();
-        if (isset($_SESSION['id']) and isset($_SESSION['nickname']) and $_SESSION['role']==true)
+        if ($this->isAdmin()===true)
         {
             $comment = $this->commentManager->getComment($commentId);
             $postId = $comment['post_id'];
@@ -70,10 +70,10 @@ class CommentController
     }
 
 
-    function commentFalse($commentId)
+    public function commentFalse($commentId)
     {
         session_start();
-        if (isset($_SESSION['nickname']) and isset($_SESSION['id']) and $_SESSION['role']==true)
+        if ($this->isAdmin()===true)
         {
             $comment = $this->commentManager->getComment($commentId);
             $postId = $comment['post_id'];
@@ -94,6 +94,17 @@ class CommentController
             header('Location: index.php?action=access-denied');
         }
         require('../view/frontend/comment/validComment.php');
+    }
+
+    public function isAdmin()
+    {
+        if (isset($_SESSION['id']) and isset($_SESSION['nickname']) and $_SESSION['role']==true)
+        {
+        	return true;
+		} else {
+			return false;
+		}
+
     }
 
     public function test_input($data)
