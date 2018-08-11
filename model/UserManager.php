@@ -31,6 +31,7 @@ class UserManager extends Manager
             $error = 'Mauvais identifiant ou mot de passe !';
         } else {
             if ($isPasswordCorrect) {
+                session_start();
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['nickname'] = $user['nickname'];
                 $_SESSION['role'] = $user['admin'];
@@ -39,6 +40,6 @@ class UserManager extends Manager
             }
         }
 
-        return $user;
+        return $isPasswordCorrect;
     }
 }

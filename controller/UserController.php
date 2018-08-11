@@ -18,7 +18,7 @@ class UserController
             $email = $this->test_input($_POST['email']);
 
             $req = $this->userManager->addNewUser($nickname, $password, $email);
-            header('Location: index.php?action=listPosts');
+            header('Location: index.php?action=login');
 
             if ($req === false) {
                 throw new Exception('Impossible d\'ajouter l\' utilisateur !');
@@ -37,11 +37,13 @@ class UserController
             $password = $this->test_input($_POST['password']);
             $req = $this->userManager->logUser($nickname, $password);
 
+
             if ($req === false) {
                 $error = 'Mauvais identifiant ou mot de passe !';
             } else {
-                header('Location: index.php?action=listPosts');
+                header('Location: index.php?action=home');
             }
+
         }
 
         require('../view/frontend/user/login.php');

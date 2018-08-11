@@ -11,7 +11,7 @@
 
 <?php include("frontend/Menu.php"); ?>
 
-<h1 class="Titre"> Se connectessr </h1>
+<h1 class="Titre"> Se connecter </h1>
 <div id="contenupage">
 
 <form action="index.php?action=login" method="post">
