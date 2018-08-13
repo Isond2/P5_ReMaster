@@ -60,8 +60,11 @@ if(!isset($_SESSION))
             <div class="Bouton1"><a class="CoolBoutonLien" href="index.php?action=home"><span class="CoolBoutonSpan"></span>Accueil</a></div>
 
             <div class="Bouton2"><a class="CoolBoutonLien" href="index.php?action=listPosts"><span class="CoolBoutonSpan"></span>Posts</a></div>
+            <?php if (isset($_SESSION['id'])  and $_SESSION['role']==true) {?>
+                <div class="Bouton3"><a class="CoolBoutonLien" href="index.php?action=addPost"><span class="CoolBoutonSpan"></span>Ajouter un post</a></div>
+            <?php } ?>
 
-            <div class="Bouton3"><a class="CoolBoutonLien" href="index.php?action=addPost"><span class="CoolBoutonSpan"></span>Ajouter un post</a></div>
+
 
             <div class="Bouton5"><a class="CoolBoutonLien" href="#" download="doc/Cv.pdf" ><span class="CoolBoutonSpan"></span>CV PDF</a></div>
 

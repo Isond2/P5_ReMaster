@@ -46,6 +46,7 @@
         <label for="comment">Commentaire :</label><br />
         <textarea id="comment" name="comment"></textarea>
     </div>
+    <p>(Une fois envoyé , votre commentaire devra être validé par un administrateur avant d'apparaitre dans la section commentaire.)</p>
     <div>
         <input type="submit" class="btn btn-default" value="Envoyer" />
     </div>
@@ -58,7 +59,7 @@
 
 
 <?php if (isset($_SESSION['id']) and isset($_SESSION['nickname']) and $_SESSION['role']==true) {?>
-<h2>Commentaires à approuver</h2>
+<h2>Commentaires à approuver :</h2>
 
 <?php
 while ($falseComments = $approuvedComments->fetch()) {
