@@ -157,9 +157,9 @@ class PostController
 
     public function test_input($data)
     {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlentities(strip_tags($data));
+        $data = trim($data);// Clean inutil spaces
+        $data = stripslashes($data);// Delete antislashes
+        $data = htmlentities(strip_tags($data));// Delete html and php balises
         return $data;
     }
 }
